@@ -9,7 +9,7 @@ public class Envio implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -8179225064813742710L;
-	private long identificador;
+	private String identificador;
 	private Instant fecha = Instant.now();
 
 	public Envio() {
@@ -17,17 +17,17 @@ public class Envio implements Serializable {
 
 	}
 
-	public Envio(long identificador, Instant instant) {
+	public Envio(String identificador, Instant fecha) {
 		super();
 		this.identificador = identificador;
-		this.fecha = instant;
+		this.fecha = fecha;
 	}
 
-	public long getIdentificador() {
+	public String getIdentificador() {
 		return identificador;
 	}
 
-	public void setIdentificador(long identificador) {
+	public void setIdentificador(String identificador) {
 		this.identificador = identificador;
 	}
 
@@ -35,8 +35,8 @@ public class Envio implements Serializable {
 		return fecha;
 	}
 
-	public void setFecha(Instant instant) {
-		this.fecha = instant;
+	public void setFecha(Instant fecha) {
+		this.fecha = fecha;
 	}
 
 	@Override
@@ -44,5 +44,5 @@ public class Envio implements Serializable {
 		return "Envio [identificador=" + identificador + ", fecha=" + fecha + "]";
 	}
 
-
+	
 }

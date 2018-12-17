@@ -12,7 +12,7 @@ public class Factura implements Serializable {
 
 	private long identificador;
 
-	private BigDecimal precio;
+	private BigDecimal precioTotal;
 	
 	public Factura() {
 		super();
@@ -27,15 +27,27 @@ public class Factura implements Serializable {
 	}
 
 	public BigDecimal getPrecio() {
-		return precio;
+		return precioTotal;
 	}
 
 	public void setPrecio(BigDecimal precio) {
-		this.precio = precio;
+		this.precioTotal = precio;
+	}
+
+	public BigDecimal getPrecioDesglosado() {
+		BigDecimal precio = new BigDecimal(0);
+		final BigDecimal IVA = new BigDecimal(1.21);
+		//precio = this.getPrecio().divide(IVA);
+		precio = new BigDecimal(this.getPrecio().longValueExact()/IVA.longValue());
+		return precio;
+		
 	}
 
 	@Override
 	public String toString() {
-		return "Factura [identificador=" + identificador + ", precio=" + precio + "]";
+		return "Factura [identificador=" + identificador + ", precioTotal=" + precioTotal + ", IVA = 21%, precioDesglosado="
+				+ getPrecioDesglosado() + "]";
 	}
+	
+	
 }
