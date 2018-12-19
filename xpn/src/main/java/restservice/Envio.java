@@ -2,6 +2,7 @@ package restservice;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Date;
 
 public class Envio implements Serializable {
 
@@ -22,7 +23,7 @@ public class Envio implements Serializable {
 		this.identificador = identificador;
 		this.fecha = fecha;
 	}
-
+	
 	public String getIdentificador() {
 		return identificador;
 	}
@@ -43,6 +44,6 @@ public class Envio implements Serializable {
 	public String toString() {
 		return "Envio [identificador=" + identificador + ", fecha=" + fecha + "]";
 	}
-
+	
 	
 }

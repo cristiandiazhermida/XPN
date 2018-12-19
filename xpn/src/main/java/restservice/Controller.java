@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 
-
+ 
     // Recibirá los datos del remitente y del destinatario
 	// Devolverá el código de seguimiento, cadena alfanumérica de 8 caracteres
 	// También devolverá la fecha y la hora en la que el mensajero acudirá al domicilio	
@@ -46,9 +46,13 @@ public class Controller {
 	public Factura factura() {
 		Factura f = new Factura();
 		Random rand = new Random();
-		f.setIdentificador(rand.nextLong());
+		long id = rand.nextLong();
+		while (id < 0) {
+			id = rand.nextLong();
+		}
+		f.setIdentificador("333");
 		// El precio deberíamos recibirlo de bonita
-		f.setPrecio(new BigDecimal("75"));
+		f.setPrecioTotal(new BigDecimal("75"));
 		return f;
 	}
 }
