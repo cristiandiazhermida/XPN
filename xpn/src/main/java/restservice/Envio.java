@@ -11,7 +11,7 @@ public class Envio implements Serializable {
 	 */
 	private static final long serialVersionUID = -8179225064813742710L;
 	private String identificador;
-	private Instant fecha = Instant.now();
+	private Instant fecha;
 
 	public Envio() {
 		super();

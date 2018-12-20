@@ -1,6 +1,9 @@
 package restservice;
 
 import java.math.BigDecimal;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.Period;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,8 +38,13 @@ public class Controller {
 	        }
 	    }
 	    String generatedString = buffer.toString();
-	 
-	    e.setIdentificador(generatedString); 
+	    // Debe devolver la fecha en la que el técnico irá a recoger el paquete
+	    // por lo que la ponemos una semana más tarde de la fecha actual
+	    Instant i = Instant.now();
+	    Instant inst = i.plus(Period.ofDays(7));
+	    
+	    e.setIdentificador(generatedString);
+	    e.setFecha(inst);
 		return e;
 	}
 	
@@ -50,7 +58,7 @@ public class Controller {
 		while (id < 0) {
 			id = rand.nextLong();
 		}
-		f.setIdentificador("333");
+		f.setIdentificador(id);
 		// El precio deberíamos recibirlo de bonita
 		f.setPrecioTotal(new BigDecimal("75"));
 		return f;
