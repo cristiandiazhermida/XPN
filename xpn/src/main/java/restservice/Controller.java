@@ -87,9 +87,9 @@ public class Controller {
 			@RequestParam(value = "direccionPostalRemitente") String direccionRemitente,
 			@RequestParam(value="nombreDestinatario") String nombreDestinatario,
 			@RequestParam(value="apellido1Destinatario") String apellido1Destinatario,
-			@RequestParam(value="apellido2Remitente") String apellido2Destinatario,
-			@RequestParam(value="emailRemitente") String emailDestinatario,
-			@RequestParam(value = "telfRemitente") String telfDestinatario,
+			@RequestParam(value="apellido2Destinatario") String apellido2Destinatario,
+			@RequestParam(value="emailDestinatario") String emailDestinatario,
+			@RequestParam(value = "telfDestinatario") String telfDestinatario,
 			@RequestParam(value = "direccionPostalDestinatario") String direccionDestinatario
 			) {
 		
